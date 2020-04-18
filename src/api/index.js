@@ -1,9 +1,9 @@
 import { w3cwebsocket as WebSocket } from "websocket";
 
 
-var socket = new WebSocket("ws://localhost:9090/ws");
+var socket = new WebSocket("ws://localhost:80/ws");
 
-let connect = () => {
+let connect = (cb) => {
   console.log("Attempting Connection...");
 
   socket.onopen = () => {
@@ -12,6 +12,7 @@ let connect = () => {
 
   socket.onmessage = msg => {
     console.log(msg);
+    cb(msg)
   };
 
   socket.onclose = event => {
