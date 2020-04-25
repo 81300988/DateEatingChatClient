@@ -23,7 +23,7 @@ var socket
 
 let openConnection = (user) => {
   let queryString = generateToken(user)
-  let uri = "ws://localhost:80/ws" + "?token="+ queryString 
+  let uri = "ws://localhost:80/api/ws/chat" + "?token="+ queryString 
   socket =  new WebSocket(uri);
 }
 
